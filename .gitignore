@@ -4,3 +4,13 @@
 *.jar
 *.war
 *.ear
+
+/cpw
+/ibxm
+/net
+/paulscode
+*.cfg
+fmlversion.properties
+forge_logo.png
+mcpmod.info
+Start.java
