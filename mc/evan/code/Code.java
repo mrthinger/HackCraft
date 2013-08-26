@@ -19,7 +19,7 @@ public class Code {
 	
 	public static void init(){
 		
-		zero = new zero(ID.ZERO).setUnlocalizedName(ModInfo.ID + ":" + Names.ZERO).setCreativeTab(CreativeTab.hackcraft);
+		zero = new CodeZero(ID.ZERO).setUnlocalizedName(ModInfo.ID + ":" + Names.ZERO).setCreativeTab(CreativeTab.hackcraft);
 		GameRegistry.registerItem(zero, "zero");
 		
 		one = new CodeOne(ID.ONE).setUnlocalizedName(ModInfo.ID + ":" + Names.ONE).setCreativeTab(CreativeTab.hackcraft);

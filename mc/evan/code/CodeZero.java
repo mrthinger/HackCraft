@@ -7,9 +7,9 @@ import net.minecraft.item.Item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class zero extends Item{
+public class CodeZero extends Item{
 
-	public zero(int par1) {
+	public CodeZero(int par1) {
 		super(par1);
 		
 		// TODO Auto-generated constructor stub
