@@ -1,4 +1,4 @@
-package mc.evan.core;
+package mc.evan.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -6,11 +6,11 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 
-public class ItemCPick extends ItemTool {
+public class ToolCodePickaxe extends ItemTool {
 	/** an array of the blocks this pickaxe is effective against */
 	public static final Block[] blocksEffectiveAgainst = Block.blocksList;
 
-	public ItemCPick(int par1, EnumToolMaterial par2EnumToolMaterial) {
+	public ToolCodePickaxe(int par1, EnumToolMaterial par2EnumToolMaterial) {
 		super(par1, 2.0F, par2EnumToolMaterial, blocksEffectiveAgainst);
 	}
 
