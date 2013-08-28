@@ -11,4 +11,15 @@ public class Names {
 	public static final String FOUR = "four";
 	public static final String EIGHT = "eight";
 	
+	
+	//Proper/In-Game Names
+	public static final String HCOMP_IG = "Evan's Computer";
+	public static final String CPICK_IG = "Code Pickaxe";
+	public static final String ZERO_IG = "Zero";
+	public static final String ONE_IG = "One";
+	public static final String TWO_IG = "Two";
+	public static final String FOUR_IG = "Four";
+	public static final String EIGHT_IG = "Eight";
+	
+	
 }

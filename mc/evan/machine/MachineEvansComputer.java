@@ -4,17 +4,13 @@ import mc.evan.creativetab.CreativeTab;
 import mc.evan.lib.ModInfo;
 import mc.evan.lib.Names;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -46,48 +42,9 @@ public class MachineEvansComputer extends Block {
 	}
 
 
-	public void onBlockAdded(World par1World, int par2, int par3, int par4) {
-		super.onBlockAdded(par1World, par2, par3, par4);
-		this.setDefaultDirection(par1World, par2, par3, par4);
-	}
-
-	/**
-	 * set a blocks direction
-	 */
-	private void setDefaultDirection(World par1World, int par2, int par3,
-			int par4) {
-		if (!par1World.isRemote) {
-			int l = par1World.getBlockId(par2, par3, par4 - 1);
-			int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-			int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-			int k1 = par1World.getBlockId(par2 + 1, par3, par4);
-			byte b0 = 3;
-
-			if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[i1]) {
-				b0 = 3;
-			}
-
-			if (Block.opaqueCubeLookup[i1] && !Block.opaqueCubeLookup[l]) {
-				b0 = 2;
-			}
-
-			if (Block.opaqueCubeLookup[j1] && !Block.opaqueCubeLookup[k1]) {
-				b0 = 5;
-			}
-
-			if (Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[j1]) {
-				b0 = 4;
-			}
-
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
-		}
-	}
 
 
 	@SideOnly(Side.CLIENT)
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-	 */
 	public Icon getIcon(int par1, int par2) {
 		
 		

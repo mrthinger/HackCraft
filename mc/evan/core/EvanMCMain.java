@@ -3,46 +3,68 @@ package mc.evan.core;
 import mc.evan.code.Code;
 import mc.evan.creativetab.CreativeTab;
 import mc.evan.item.Items;
+import mc.evan.lib.ConfigHandler;
 import mc.evan.lib.ModInfo;
 import mc.evan.machine.Machine;
-import mc.evan.machine.MachineEvansComputer;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import mc.evan.network.CommonProxy;
+import mc.evan.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION)
 
-@NetworkMod(clientSideRequired=true, serverSideRequired=false)
+@NetworkMod(channels = {ModInfo.ID},clientSideRequired=true, serverSideRequired=false, packetHandler = PacketHandler.class)
 public class EvanMCMain {
 
-	
+	@Instance(ModInfo.ID)
+	public static EvanMCMain instance;
+	@SidedProxy(clientSide="mc.evan.network.ClientProxy", serverSide="mc.evan.network.CommonProxy")
+	public static CommonProxy proxy;
 	
 	@EventHandler
-	public void Load(FMLPreInitializationEvent Event){
+	public void preinit(FMLPreInitializationEvent event){
+		//Config
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		
+		
+		
 		//Creative Tab
 		CreativeTab.init();
 
 		//Machines
 		Machine.init();
-		Machine.addNames();
-		Machine.addRecipes();
+
 		
 		//Items
 		Items.init();
-		Items.addNames();
-		Items.addRecipies();
+
 		
 		//"Code" lol
 		Code.init();
+
+		
+
+	}
+	
+	@EventHandler
+	public void load(FMLInitializationEvent event){
+		
+		
+		Machine.addNames();
+		Machine.addRecipes();
+		
+		Items.addNames();
+		Items.addRecipies();
+		
 		Code.addNames();
 		Code.addRecipes();
 		
-
+		
 	}
 	
 }

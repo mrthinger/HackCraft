@@ -1,0 +1,17 @@
+[
+{
+  "modid": "evanmc",
+  "name": "HackCraft",
+  "description": "Use bare code to compile and decompile things into objects and binary",
+  "version": "0.3",
+  "credits": "Created by mrthinger",
+  "logoFile": "",
+  "mcversion": "1.6.2",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["mrthinger"],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -36,11 +36,11 @@ public class Code {
 		
 	}
 	public static void addNames(){
-		LanguageRegistry.addName(zero, "Zero");
-		LanguageRegistry.addName(one, "One");
-		LanguageRegistry.addName(two, "Two");
-		LanguageRegistry.addName(four, "Four");
-		LanguageRegistry.addName(eight, "Eight");
+		LanguageRegistry.addName(zero, Names.ZERO_IG);
+		LanguageRegistry.addName(one, Names.ONE_IG);
+		LanguageRegistry.addName(two, Names.TWO_IG);
+		LanguageRegistry.addName(four, Names.FOUR_IG);
+		LanguageRegistry.addName(eight, Names.EIGHT_IG);
 		
 	}
 	public static void addRecipes(){

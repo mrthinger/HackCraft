@@ -1,5 +1,6 @@
 package mc.evan.machine;
 
+import mc.evan.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -18,7 +19,7 @@ public class Machine {
 	}
 
 	public static void addNames() {
-		LanguageRegistry.addName(hcomp, "Evan's Computer");
+		LanguageRegistry.addName(hcomp, Names.HCOMP_IG);
 
 	}
 

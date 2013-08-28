@@ -1,12 +1,13 @@
 package mc.evan.item;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import mc.evan.lib.ID;
+import mc.evan.lib.Names;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.EnumHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Items{
 	
@@ -24,7 +25,7 @@ public class Items{
 	}
 	
 	public static void addNames(){
-		LanguageRegistry.addName(cpick, "Code Pickaxe");
+		LanguageRegistry.addName(cpick, Names.CPICK_IG);
 		
 		
 	}
