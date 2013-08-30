@@ -44,11 +44,9 @@ public class Code {
 		
 	}
 	public static void addRecipes(){
-		GameRegistry.addShapedRecipe(new ItemStack(zero), "iii","i i","iii", 'i', Item.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(one), " i "," i "," i ", 'i', Item.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(two), "ii "," i "," ii", 'i', Item.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(four), "i i","iii","  i", 'i', Item.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(eight), "iii"," i ","iii", 'i', Item.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(two), "ooi","ioo","io ", 'i', Code.one, 'o', Code.zero);
+		GameRegistry.addShapedRecipe(new ItemStack(four), "ooi","ioi","oo ", 'i', Code.two, 'o', Code.zero);
+		GameRegistry.addShapedRecipe(new ItemStack(eight), "ooi","iio","oo ", 'i', Code.four, 'o', Code.zero);
 	}
 	
 	

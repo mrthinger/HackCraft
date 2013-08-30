@@ -1,5 +1,6 @@
 package mc.evan.item;
 
+import mc.evan.code.Code;
 import mc.evan.lib.ID;
 import mc.evan.lib.Names;
 import net.minecraft.item.EnumToolMaterial;
@@ -15,7 +16,7 @@ public class Items{
 	public static Item cpick;
 	
 	
-	public static EnumToolMaterial CODE = EnumHelper.addToolMaterial("Code", 5, -1, 255.0F, 20.0F, 10);
+	public static EnumToolMaterial CODE = EnumHelper.addToolMaterial("Code", 5, -1, 60.0F, 20.0F, 10);
 	
 	
 	public static void init(){
@@ -31,7 +32,7 @@ public class Items{
 	}
 	
 	public static void addRecipies(){
-		GameRegistry.addShapedRecipe(new ItemStack(cpick), "iii"," i "," i ", 'i', Item.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(cpick), "iii"," u "," o ", 'i', Code.eight, 'o', Code.zero, 'u', Code.one);
 		
 	}
 	

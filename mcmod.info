@@ -3,7 +3,7 @@
   "modid": "evanmc",
   "name": "HackCraft",
   "description": "Use bare code to compile and decompile things into objects and binary",
-  "version": "0.3",
+  "version": "0.9",
   "credits": "Created by mrthinger",
   "logoFile": "",
   "mcversion": "1.6.2",

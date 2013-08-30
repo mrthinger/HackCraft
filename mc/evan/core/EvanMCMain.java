@@ -1,11 +1,12 @@
 package mc.evan.core;
 
+import mc.evan.block.Blocks;
+import mc.evan.client.interfaces.GuiHandler;
 import mc.evan.code.Code;
 import mc.evan.creativetab.CreativeTab;
 import mc.evan.item.Items;
 import mc.evan.lib.ConfigHandler;
 import mc.evan.lib.ModInfo;
-import mc.evan.machine.Machine;
 import mc.evan.network.CommonProxy;
 import mc.evan.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
@@ -15,6 +16,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION)
 
@@ -30,14 +32,14 @@ public class EvanMCMain {
 	public void preinit(FMLPreInitializationEvent event){
 		//Config
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
-		
+		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 		
 		
 		//Creative Tab
 		CreativeTab.init();
 
 		//Machines
-		Machine.init();
+		Blocks.init();
 
 		
 		//Items
@@ -55,8 +57,8 @@ public class EvanMCMain {
 	public void load(FMLInitializationEvent event){
 		
 		
-		Machine.addNames();
-		Machine.addRecipes();
+		Blocks.addNames();
+		Blocks.addRecipes();
 		
 		Items.addNames();
 		Items.addRecipies();
