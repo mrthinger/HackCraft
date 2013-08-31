@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 
 public class CreativeTabHackCraft extends CreativeTabs {
 
-	public CreativeTabHackCraft(int par1, String par2Str) {
-		super(par1, par2Str);
+	public CreativeTabHackCraft(String par2Str) {
+		super(par2Str);
 		// TODO Auto-generated constructor stub
 	}
 	public ItemStack getIconItemStack()

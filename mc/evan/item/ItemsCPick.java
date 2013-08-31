@@ -8,6 +8,8 @@ import mc.evan.lib.ModInfo;
 import mc.evan.lib.Names;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityEnderPearl;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -21,6 +23,27 @@ public class ItemsCPick extends ToolCode {
 		super(par1, par2EnumToolMaterial);
 		setUnlocalizedName(ModInfo.ID + ":" + Names.CPICK);
 		setCreativeTab(CreativeTab.hackcraft);
+
+	}
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,
+			EntityPlayer par3EntityPlayer) {
+		if (par3EntityPlayer.capabilities.isCreativeMode) {
+			return par1ItemStack;
+		} else {
+	        --par1ItemStack.stackSize;
+			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F,
+					0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			par3EntityPlayer.heal(20F);
+
+			if (!par2World.isRemote) {
+				par2World.spawnEntityInWorld(new CustomPickEntity(par1ItemStack, par2World,
+						par3EntityPlayer));
+			}
+
+			return par1ItemStack;
+		}
 	}
 
 	@Override
@@ -37,8 +60,9 @@ public class ItemsCPick extends ToolCode {
 			float MptX = 0.5F - rand.nextFloat();
 			float MptY = 0.5F - rand.nextFloat();
 			float MptZ = 0.5F - rand.nextFloat();
-			if(world.isRemote == true){
-			Particle.IOPARTICLE.spawnParticle(world, ptX, ptY, ptZ, MptX, MptY, MptZ);
+			if (world.isRemote == true) {
+				Particle.IOPARTICLE.spawnParticle(world, ptX, ptY, ptZ, MptX,
+						MptY, MptZ);
 			}
 		}
 
