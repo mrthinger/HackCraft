@@ -4,11 +4,11 @@ import java.util.Random;
 
 import mc.evan.client.particle.Particle;
 import mc.evan.creativetab.CreativeTab;
+import mc.evan.item.dynamic.PickProjectile;
 import mc.evan.lib.ModInfo;
 import mc.evan.lib.Names;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityEnderPearl;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
@@ -32,14 +32,13 @@ public class ItemsCPick extends ToolCode {
 		if (par3EntityPlayer.capabilities.isCreativeMode) {
 			return par1ItemStack;
 		} else {
-	        --par1ItemStack.stackSize;
+			--par1ItemStack.stackSize;
 			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F,
 					0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-			par3EntityPlayer.heal(20F);
 
 			if (!par2World.isRemote) {
-				par2World.spawnEntityInWorld(new CustomPickEntity(par1ItemStack, par2World,
-						par3EntityPlayer));
+				par2World.spawnEntityInWorld(new PickProjectile(par1ItemStack,
+						par2World, par3EntityPlayer));
 			}
 
 			return par1ItemStack;
@@ -51,7 +50,22 @@ public class ItemsCPick extends ToolCode {
 			int id, int x, int y, int z, EntityLivingBase par7EntityLivingBase) {
 
 		Random rand = new Random();
-		for (int i = 0; i <= 1000; i++) {
+
+		for(int i=0; i<3; i++){
+			float ptX = x + rand.nextFloat();
+			float ptY = y + rand.nextFloat();
+			float ptZ = z + rand.nextFloat();
+
+			float MptX = 0.5F - rand.nextFloat();
+			float MptY = 0.5F;
+			float MptZ = 0.5F - rand.nextFloat();
+			
+			if (world.isRemote == true){
+				Particle.SIXTYNINEPARTICLE.spawnParticle(world, ptX, ptY, ptZ, MptX, MptY, MptZ);
+			}
+		}
+		
+		for (int i = 0; i < 1000; i++) {
 
 			float ptX = x + rand.nextFloat();
 			float ptY = y + rand.nextFloat();
@@ -60,6 +74,7 @@ public class ItemsCPick extends ToolCode {
 			float MptX = 0.5F - rand.nextFloat();
 			float MptY = 0.5F - rand.nextFloat();
 			float MptZ = 0.5F - rand.nextFloat();
+			
 			if (world.isRemote == true) {
 				Particle.IOPARTICLE.spawnParticle(world, ptX, ptY, ptZ, MptX,
 						MptY, MptZ);
@@ -70,14 +85,11 @@ public class ItemsCPick extends ToolCode {
 				par7EntityLivingBase);
 	}
 
-	@SideOnly(Side.CLIENT)
-	public static Icon ioparticle;
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
 		this.itemIcon = icon.registerIcon(ModInfo.ID + ":" + Names.CPICK);
-		this.ioparticle = icon
-				.registerIcon(ModInfo.ID + ":" + Names.IOParticle);
+
 	}
 
 }

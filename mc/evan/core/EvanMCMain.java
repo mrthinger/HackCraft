@@ -2,6 +2,7 @@ package mc.evan.core;
 
 import mc.evan.block.Blocks;
 import mc.evan.client.interfaces.GuiHandler;
+import mc.evan.client.particle.ParticleInitializer;
 import mc.evan.code.Code;
 import mc.evan.creativetab.CreativeTab;
 import mc.evan.item.Items;
@@ -33,6 +34,9 @@ public class EvanMCMain {
 		//Config
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
+		ParticleInitializer.init();
+		
+		proxy.registerRenderers();
 		
 		
 		//Creative Tab

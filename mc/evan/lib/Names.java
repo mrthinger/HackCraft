@@ -4,6 +4,7 @@ public class Names {
 	
 	//particles
 	public static final String IOParticle = "ioparticle";
+	public static final String SixtyNineParticle = "sixtynineparticle";
 	
 	
 	//(If block is not multi-textured the name is the same as the texture)
@@ -27,6 +28,7 @@ public class Names {
 	
 	//TE Keys
 	public static final String HCOMP_TE = "hcompte";
+
 
 	
 	

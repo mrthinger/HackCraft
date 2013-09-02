@@ -5,7 +5,8 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.world.World;
 
 public enum Particle {	
-	IOPARTICLE;
+	IOPARTICLE,
+	SIXTYNINEPARTICLE;
 	
 	public void spawnParticle(World world, double x, double y, double z, double motionX, double motionY, double motionZ) {
 		Minecraft mc = Minecraft.getMinecraft();
@@ -29,6 +30,9 @@ public enum Particle {
 			switch(this) {
 				case IOPARTICLE:
 					particleEffect = new IOParticle(world, x, y, z, motionX, motionY, motionZ);
+					break;
+				case SIXTYNINEPARTICLE:
+					particleEffect = new SixtyNineParticle(world, x, y, z, motionX, motionY, motionZ);
 					break;
 			}
 			

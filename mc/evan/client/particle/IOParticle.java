@@ -11,7 +11,7 @@ public class IOParticle extends EntityFX {
 			double motionx, double motiony, double motionz) {
 		super(world, x, y, z, motionx, motiony, motionz);
 
-		func_110125_a(ItemsCPick.ioparticle);
+		func_110125_a(ParticleInitializer.ioparticle);
 		particleScale = 1;
 	}
 
